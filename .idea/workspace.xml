@@ -5,21 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/AudioDeviceSelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/managers/SoundtrackManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/main-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/soundtrack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/FairRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +32,20 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2mD5gMs7CtFgQZGcKB6yPzAPyRU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,21 +54,49 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.fair-record [:FairRecord.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "developed",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/user/Documents/GitHub/fair-record/src/main/java/ru/sudrf/fairrecord/fairrecord",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="FairRecord" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.sudrf.fairrecord.fairrecord.FairRecord" />
+      <module name="fair-record.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.sudrf.fairrecord.fairrecord.helpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FairRecord" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -72,6 +109,14 @@
       <option name="presentableId" value="Default" />
       <updated>1726598417615</updated>
       <workItem from="1726598418665" duration="443000" />
+      <workItem from="1726637861171" duration="6090000" />
+      <workItem from="1726757485866" duration="322000" />
+      <workItem from="1726758592704" duration="26000" />
+      <workItem from="1726758630357" duration="994000" />
+      <workItem from="1726759844296" duration="185000" />
+      <workItem from="1726760043848" duration="418000" />
+      <workItem from="1726760476713" duration="16537000" />
+      <workItem from="1727082083252" duration="697000" />
     </task>
     <servers />
   </component>
