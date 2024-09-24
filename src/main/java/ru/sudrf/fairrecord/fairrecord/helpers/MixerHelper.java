@@ -19,12 +19,15 @@ public class MixerHelper {
 
     public static TargetDataLine getTargetDataLine(Mixer mixer, AudioFormat audioFormat) throws LineUnavailableException {
         DataLine.Info info = new DataLine.Info(TargetDataLine.class, audioFormat);
+        if (!mixer.isLineSupported(info)) {
+            throw new IllegalArgumentException("Line unsupported: " + info);
+        }
         return (TargetDataLine) mixer.getLine(info);
     }
 
-    public static List<String> getAllMixers() {
+    public static List<Mixer> getAllMixers() {
         Mixer.Info[] mixerInfos = AudioSystem.getMixerInfo();
-        List<String> availableDeviceNames = new ArrayList<>();
+        List<Mixer> availableMixers = new ArrayList<>();
         for (Mixer.Info mixerInfo : mixerInfos) {
             Mixer mixer = AudioSystem.getMixer(mixerInfo);
             Line.Info[] lineInfos = mixer.getTargetLineInfo();
@@ -32,42 +35,39 @@ public class MixerHelper {
                 if (lineInfo instanceof DataLine.Info) {
                     DataLine.Info dataLineInfo = (DataLine.Info) lineInfo;
                     if (dataLineInfo.getLineClass() == TargetDataLine.class) {
-                        availableDeviceNames.add(mixerInfo.getName());
+                        availableMixers.add(mixer);
                         break;
                     }
                 }
             }
         }
-        return availableDeviceNames;
+        return availableMixers;
     }
 
     public static AudioFormat getSupportedAudioFormats(Mixer mixer) {
-        List<AudioFormat> supportedFormats = new ArrayList<>();
-        Line.Info[] lineInfos = mixer.getSourceLineInfo();
+        Line.Info[] lineInfos = mixer.getTargetLineInfo();
         for (Line.Info lineInfo : lineInfos) {
             if (lineInfo instanceof DataLine.Info) {
                 DataLine.Info dataLineInfo = (DataLine.Info) lineInfo;
                 if (dataLineInfo.getLineClass() == TargetDataLine.class) {
                     AudioFormat[] formats = dataLineInfo.getFormats();
-                    supportedFormats.addAll(Arrays.asList(formats));
+                    for (AudioFormat format : formats) {
+                        if (format.getSampleSizeInBits() == 16 && format.getChannels() == 1 && format.isBigEndian()) {
+                            return new AudioFormat(format.getEncoding(), 44100, format.getSampleSizeInBits(), format.getChannels(), format.getFrameSize(), 44100, format.isBigEndian());
+                        }
+                    }
                 }
             }
         }
-
-        // Проверка на пустой список
-        if (supportedFormats.isEmpty()) {
-            return new AudioFormat(8000.0f, 16, 1, true, false);
-        }
-
-        // Фильтрация форматов по вашим критериям
-        for (AudioFormat format : supportedFormats) {
-            if (format.getSampleRate() != AudioSystem.NOT_SPECIFIED) {
-                return format; // Возвращаем первый формат, который соответствует критериям
-            }
-        }
-
-        // Если ни один формат не соответствует критериям, возвращаем первый формат
-        return supportedFormats.get(0);
+        return new AudioFormat(
+                AudioFormat.Encoding.PCM_SIGNED, // Кодировка: PCM_SIGNED
+                44100,                          // Частота дискретизации: 44100 Гц
+                16,                             // Размер сэмпла: 16 бит
+                1,                              // Количество каналов: 1 (моно)
+                2,                              // Размер фрейма: 2 байта (16 бит * 1 канал / 8 бит на байт)
+                44100,                          // Частота дискретизации фрейма: 44100 Гц
+                true                           // Порядок байтов: little-endian
+        );
     }
 
     public static void printAllMixersInfo() {

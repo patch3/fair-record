@@ -46,26 +46,27 @@ public class SoundtrackController implements Initializable {
     }
 
     public void clickDelete(MouseEvent mouseEvent) {
-
+        // Логика удаления звукового трека
     }
 
     public void clickChangeMicro(MouseEvent mouseEvent) {
-        //MixerHelper.printAllMixersInfo();
         AudioDeviceSelector.showAndWait();
-        System.err.println("WAITING STOP");
         currentMixerName = AudioDeviceSelector.getSelectedMixer();
-        this.audioTrack.setText(String.format("Аудиоустройство: %s", currentMixerName.getMixerInfo().getName()));
-        recorder = new AudioRecorder(new File("test" + currentMixerName + ".wav"), currentMixerName);
+        if (currentMixerName != null) {
+            this.audioTrack.setText(String.format("Аудиоустройство: %s", currentMixerName.getMixerInfo().getName()));
+            recorder = new AudioRecorder(new File("test" + currentMixerName.getMixerInfo().getName() + ".wav"), currentMixerName);
+        }
     }
 
-
-
-
     public void clickStop(MouseEvent mouseEvent) {
-        recorder.stop();
+        if (recorder != null) {
+            recorder.stop();
+        }
     }
 
     public void clickStart(MouseEvent mouseEvent) {
-        recorder.start();
+        if (recorder != null) {
+            recorder.start();
+        }
     }
 }

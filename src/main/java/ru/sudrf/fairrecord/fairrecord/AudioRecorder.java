@@ -19,6 +19,7 @@ public class AudioRecorder {
     }
 
     public void start() {
+        MixerHelper.printAllMixersInfo();
         System.out.printf("Starting AudioRecorder %s\n", deviceToRecord);
         try {
             if (deviceToRecord == null) {
@@ -37,9 +38,16 @@ public class AudioRecorder {
             targetDataLine.start();
 
             audioInputStream = new AudioInputStream(targetDataLine);
-            AudioSystem.write(audioInputStream, AudioFileFormat.Type.WAVE, outputFile);
 
-        } catch (LineUnavailableException | IOException e) {
+            new Thread(() -> {
+                try {
+                    AudioSystem.write(audioInputStream, AudioFileFormat.Type.WAVE, outputFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+
+        } catch (LineUnavailableException e) {
             e.printStackTrace();
         }
     }
@@ -50,7 +58,12 @@ public class AudioRecorder {
             targetDataLine.close();
             System.err.printf("Mixer %s stopped\n", deviceToRecord);
         }
+        if (audioInputStream != null) {
+            try {
+                audioInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
-
 }
