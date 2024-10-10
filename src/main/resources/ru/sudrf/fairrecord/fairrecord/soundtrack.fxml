@@ -2,17 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="BOTTOM_LEFT" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="650.0" spacing="5.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sudrf.fairrecord.fairrecord.controllers.SoundtrackController">
+<VBox alignment="BOTTOM_LEFT" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="641.0" spacing="5.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sudrf.fairrecord.fairrecord.controllers.SoundtrackController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
             <Text fx:id="name" boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Звуковая дорожка %s" HBox.hgrow="ALWAYS" />
             <Text fx:id="audioTrack" boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Аудиоустройство: %s" wrappingWidth="90000.0" HBox.hgrow="ALWAYS" />
+            <ImageView fx:id="settings" fitHeight="13.0" fitWidth="13.0" onMouseClicked="#clickSettings" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="270.0" />
+               </HBox.margin>
+            </ImageView>
          </children>
          <VBox.margin>
             <Insets top="8.0" />

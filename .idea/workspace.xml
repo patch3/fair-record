@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Не работает запись микро">
+    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Добавлено удаление дорожек">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/images/settingsImage.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/FairRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/FairRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/AudioDeviceSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/AudioDeviceSelector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/managers/SoundtrackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/managers/SoundtrackManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/soundtrack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/soundtrack.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +50,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.fair-record [:FairRecord.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.fair-record [:RecordingTest.main()].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -50,6 +58,7 @@
     &quot;git-widget-placeholder&quot;: &quot;developed&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/user/Documents/GitHub/fair-record/src/main/java/ru/sudrf/fairrecord/fairrecord&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/GitHub/fair-record/src/main/resources/ru/sudrf/fairrecord/fairrecord/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -58,10 +67,15 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\GitHub\fair-record\src\main\resources\ru\sudrf\fairrecord\fairrecord\images" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.FairRecord">
     <configuration name="FairRecord" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.sudrf.fairrecord.fairrecord.FairRecord" />
@@ -123,7 +137,19 @@
       <workItem from="1727082083252" duration="1351000" />
       <workItem from="1727160455617" duration="1053000" />
       <workItem from="1727161580264" duration="3000" />
-      <workItem from="1727161918296" duration="2570000" />
+      <workItem from="1727161918296" duration="3724000" />
+      <workItem from="1727618879575" duration="1149000" />
+      <workItem from="1727703993043" duration="3949000" />
+      <workItem from="1727755994043" duration="617000" />
+      <workItem from="1727884166748" duration="1706000" />
+      <workItem from="1727889172939" duration="1707000" />
+      <workItem from="1728048844237" duration="5854000" />
+      <workItem from="1728222492379" duration="383000" />
+      <workItem from="1728230555105" duration="4180000" />
+      <workItem from="1728551119502" duration="17000" />
+      <workItem from="1728566364700" duration="3476000" />
+      <workItem from="1728574273692" duration="1371000" />
+      <workItem from="1728575766791" duration="773000" />
     </task>
     <task id="LOCAL-00001" summary="Не работает запись микро">
       <option name="closed" value="true" />
@@ -133,14 +159,38 @@
       <option name="project" value="LOCAL" />
       <updated>1727082837432</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Работает запись нескольких устройств одновременно. Ура..(iwtd)">
+      <option name="closed" value="true" />
+      <created>1727172993721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727172993721</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Не работает запись микро" />
-    <option name="LAST_COMMIT_MESSAGE" value="Не работает запись микро" />
+    <MESSAGE value="Работает запись нескольких устройств одновременно. Ура..(iwtd)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Работает запись нескольких устройств одновременно. Ура..(iwtd)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
