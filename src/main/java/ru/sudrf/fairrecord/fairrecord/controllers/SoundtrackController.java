@@ -185,6 +185,8 @@ public class SoundtrackController implements Initializable {
         if (recorder != null) {
             recorder.stop();
         }
+        limiter.setWidth(170);
+        limiter.setFill(Color.GREEN);
     }
 
     /**
@@ -212,10 +214,9 @@ public class SoundtrackController implements Initializable {
             double width = Math.max(0, Math.min(100, db + 60)); // Нормализация dB в диапазон 0-100
             limiter.setWidth(width);
 
-            // Изменение цветовой палитры в зависимости от уровня звука
-            if (db < 20) {
+            if (db < -15) {
                 limiter.setFill(Color.GREEN);
-            } else if (db < 50) {
+            } else if (db < -3) {
                 limiter.setFill(Color.YELLOW);
             } else {
                 limiter.setFill(Color.RED);

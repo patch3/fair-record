@@ -222,15 +222,56 @@ public class AudioRecorder {
      */
     private double calculateRMS(byte[] buffer, int numberOfSamples, int sampleSizeInBytes, AudioFormat format) {
         double sum = 0;
+        int channels = format.getChannels();
+        boolean isSigned = format.getEncoding() == AudioFormat.Encoding.PCM_SIGNED;
+        boolean isBigEndian = format.isBigEndian();
+
         for (int i = 0; i < numberOfSamples * sampleSizeInBytes; i += sampleSizeInBytes) {
-            short sample = 0;
-            for (int j = 0; j < sampleSizeInBytes; j++) {
-                sample |= (short) ((buffer[i + j] & 0xFF) << (8 * j));
+            double sampleValue = 0;
+
+            switch (sampleSizeInBytes) {
+                case 1:
+                    byte byteSample = buffer[i];
+                    if (!isSigned) {
+                        byteSample -= 128; // Нормализация для беззнаковых 8-битных данных
+                    }
+                    sampleValue = byteSample / 128.0;
+                    break;
+                case 2:
+                    short shortSample = 0;
+                    if (isBigEndian) {
+                        shortSample = (short) ((buffer[i] << 8) | (buffer[i + 1] & 0xFF));
+                    } else {
+                        shortSample = (short) ((buffer[i + 1] << 8) | (buffer[i] & 0xFF));
+                    }
+                    sampleValue = shortSample / 32768.0;
+                    break;
+                case 3:
+                    int intSample = 0;
+                    if (isBigEndian) {
+                        intSample = (buffer[i] << 16) | ((buffer[i + 1] & 0xFF) << 8) | (buffer[i + 2] & 0xFF);
+                    } else {
+                        intSample = (buffer[i + 2] << 16) | ((buffer[i + 1] & 0xFF) << 8) | (buffer[i] & 0xFF);
+                    }
+                    sampleValue = intSample / 8388608.0;
+                    break;
+                case 4:
+                    int intSample4 = 0;
+                    if (isBigEndian) {
+                        intSample4 = (buffer[i] << 24) | ((buffer[i + 1] & 0xFF) << 16) | ((buffer[i + 2] & 0xFF) << 8) | (buffer[i + 3] & 0xFF);
+                    } else {
+                        intSample4 = (buffer[i + 3] << 24) | ((buffer[i + 2] & 0xFF) << 16) | ((buffer[i + 1] & 0xFF) << 8) | (buffer[i] & 0xFF);
+                    }
+                    sampleValue = intSample4 / 2147483648.0;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unsupported sample size: " + sampleSizeInBytes);
             }
-            double sampleValue = sample / (Math.pow(2, format.getSampleSizeInBits() - 1));
+
             sum += sampleValue * sampleValue;
         }
-        return Math.sqrt(sum / numberOfSamples);
+
+        return Math.sqrt(sum / (numberOfSamples * channels));
     }
 
     /**

@@ -63,8 +63,7 @@ public class MixerHelper {
             Mixer mixer = AudioSystem.getMixer(mixerInfo);
             Line.Info[] lineInfos = mixer.getTargetLineInfo();
             for (Line.Info lineInfo : lineInfos) {
-                if (lineInfo instanceof DataLine.Info) {
-                    DataLine.Info dataLineInfo = (DataLine.Info) lineInfo;
+                if (lineInfo instanceof DataLine.Info dataLineInfo) {
                     if (dataLineInfo.getLineClass() == TargetDataLine.class) {
                         availableMixers.add(mixer);
                         break;

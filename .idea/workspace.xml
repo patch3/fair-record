@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Добавлено удаление дорожек">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/images/settingsImage.png" afterDir="false" />
+    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Начата работа над визуализацией дБ, добавлены джава-доки">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/FairRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/FairRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/AudioDeviceSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/AudioDeviceSelector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/managers/SoundtrackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/managers/SoundtrackManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/soundtrack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru/sudrf/fairrecord/fairrecord/soundtrack.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +141,9 @@
       <workItem from="1728551119502" duration="17000" />
       <workItem from="1728566364700" duration="3476000" />
       <workItem from="1728574273692" duration="1371000" />
-      <workItem from="1728575766791" duration="773000" />
+      <workItem from="1728575766791" duration="1081000" />
+      <workItem from="1728746742772" duration="2877000" />
+      <workItem from="1728894880468" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="Не работает запись микро">
       <option name="closed" value="true" />
@@ -167,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727172993721</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Начата работа над визуализацией дБ, добавлены джава-доки">
+      <option name="closed" value="true" />
+      <created>1728580441981</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728580441981</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +189,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Не работает запись микро" />
     <MESSAGE value="Работает запись нескольких устройств одновременно. Ура..(iwtd)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Работает запись нескольких устройств одновременно. Ура..(iwtd)" />
+    <MESSAGE value="Начата работа над визуализацией дБ, добавлены джава-доки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Начата работа над визуализацией дБ, добавлены джава-доки" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
