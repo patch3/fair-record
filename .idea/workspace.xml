@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Запись и визуализация звука завершены, работают корректно">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/NoiseReduction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/windows/SettingsWindow.java" afterDir="false" />
+    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Начата работа с шумодавом">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +17,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="fair-record" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,30 +55,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.fair-record [:FairRecord.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.fair-record [:RecordingTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;developed&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/user/Documents/GitHub/fair-record/src/main/java/ru/sudrf/fairrecord/fairrecord&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Documents/GitHub/fair-record/src/main/resources/ru/sudrf/fairrecord/fairrecord/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.fair-record [:FairRecord.main()].executor": "Run",
+    "Gradle.fair-record [:RecordingTest.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "developed",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/user/Documents/GitHub/fair-record/src/main/java/ru/sudrf/fairrecord/fairrecord",
+    "last_opened_file_path": "C:/Users/user/Documents/GitHub/fair-record/src/main/resources/ru/sudrf/fairrecord/fairrecord/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.folding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Documents\GitHub\fair-record\src\main\resources\ru\sudrf\fairrecord\fairrecord\images" />
@@ -150,6 +163,7 @@
       <workItem from="1728919551969" duration="6034000" />
       <workItem from="1729271850541" duration="1973000" />
       <workItem from="1729340368761" duration="3277000" />
+      <workItem from="1729358331245" duration="1767000" />
     </task>
     <task id="LOCAL-00001" summary="Не работает запись микро">
       <option name="closed" value="true" />
@@ -183,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728912491294</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Начата работа с шумодавом">
+      <option name="closed" value="true" />
+      <created>1729358457553</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729358457553</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +227,8 @@
     <MESSAGE value="Работает запись нескольких устройств одновременно. Ура..(iwtd)" />
     <MESSAGE value="Начата работа над визуализацией дБ, добавлены джава-доки" />
     <MESSAGE value="Запись и визуализация звука завершены, работают корректно" />
-    <option name="LAST_COMMIT_MESSAGE" value="Запись и визуализация звука завершены, работают корректно" />
+    <MESSAGE value="Начата работа с шумодавом" />
+    <option name="LAST_COMMIT_MESSAGE" value="Начата работа с шумодавом" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
