@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Начата работа над визуализацией дБ, добавлены джава-доки">
+    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Запись и визуализация звука завершены, работают корректно">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/NoiseReduction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/windows/SettingsWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/AudioRecorder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/helpers/MixerHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.fair-record [:FairRecord.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.fair-record [:RecordingTest.main()].executor&quot;: &quot;Run&quot;,
@@ -74,7 +77,7 @@
       <module name="fair-record.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.sudrf.fairrecord.fairrecord.helpers.*" />
+          <option name="PATTERN" value="ru.sudrf.fairrecord.fairrecord.controllers.windows.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,7 +146,10 @@
       <workItem from="1728574273692" duration="1371000" />
       <workItem from="1728575766791" duration="1081000" />
       <workItem from="1728746742772" duration="2877000" />
-      <workItem from="1728894880468" duration="4454000" />
+      <workItem from="1728894880468" duration="5141000" />
+      <workItem from="1728919551969" duration="6034000" />
+      <workItem from="1729271850541" duration="1973000" />
+      <workItem from="1729340368761" duration="3277000" />
     </task>
     <task id="LOCAL-00001" summary="Не работает запись микро">
       <option name="closed" value="true" />
@@ -169,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728580441981</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Запись и визуализация звука завершены, работают корректно">
+      <option name="closed" value="true" />
+      <created>1728912491294</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728912491294</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +204,8 @@
     <MESSAGE value="Не работает запись микро" />
     <MESSAGE value="Работает запись нескольких устройств одновременно. Ура..(iwtd)" />
     <MESSAGE value="Начата работа над визуализацией дБ, добавлены джава-доки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Начата работа над визуализацией дБ, добавлены джава-доки" />
+    <MESSAGE value="Запись и визуализация звука завершены, работают корректно" />
+    <option name="LAST_COMMIT_MESSAGE" value="Запись и визуализация звука завершены, работают корректно" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

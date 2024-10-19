@@ -107,6 +107,7 @@ public class SoundtrackController implements Initializable {
     /**
      * Записывающий аудиообъект.
      */
+
     private AudioRecorder recorder;
 
     /**
@@ -123,15 +124,7 @@ public class SoundtrackController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.name.setText(String.format(this.name.getText(), MainController.soundtrackManager.getCount()));
         this.settings.setImage(new Image(Objects.requireNonNull(FairRecord.class.getResourceAsStream("images/settingsImage.png"))));
-    }
-
-    /**
-     * Возвращает экземпляр контроллера.
-     *
-     * @return Экземпляр контроллера.
-     */
-    public SoundtrackController getController() {
-        return this;
+        soundDb.setText(String.valueOf(Double.NaN));
     }
 
     /**
@@ -185,8 +178,16 @@ public class SoundtrackController implements Initializable {
         if (recorder != null) {
             recorder.stop();
         }
+        try {
+            if (recorder != null) {
+                recorder.getRecordingThread().join();
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         limiter.setWidth(170);
         limiter.setFill(Color.GREEN);
+        soundDb.setText(String.valueOf(Double.NaN));
     }
 
     /**
@@ -210,6 +211,9 @@ public class SoundtrackController implements Initializable {
      */
     public void updateVolumeVisualization(double db) {
         javafx.application.Platform.runLater(() -> {
+            if (recorder == null || recorder.getRecordingThread() == null || recorder.getRecordingThread().isInterrupted() || !recorder.isRecording()) {
+                return;
+            }
             soundDb.setText(String.format("%.2f dB", db));
             double width = Math.max(0, Math.min(100, db + 60)); // Нормализация dB в диапазон 0-100
             limiter.setWidth(width);

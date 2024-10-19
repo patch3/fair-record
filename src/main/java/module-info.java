@@ -13,4 +13,6 @@ module ru.sudrf.fairrecord.fairrecord {
     opens ru.sudrf.fairrecord.fairrecord.helpers to javafx.fxml;
     exports ru.sudrf.fairrecord.fairrecord.managers;
     opens ru.sudrf.fairrecord.fairrecord.managers to javafx.fxml;
+    exports ru.sudrf.fairrecord.fairrecord.controllers.windows;
+    opens ru.sudrf.fairrecord.fairrecord.controllers.windows to javafx.fxml;
 }

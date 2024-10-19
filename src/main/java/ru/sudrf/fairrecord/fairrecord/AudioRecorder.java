@@ -47,9 +47,11 @@ public class AudioRecorder {
     /**
      * Поток для выполнения записи.
      */
+    @Getter
     private Thread recordingThread;
     @Getter
     private RecorderSettings settings;
+    @Getter
     private volatile boolean isRecording = true;
 
     /**
@@ -130,6 +132,9 @@ public class AudioRecorder {
                     while (isRecording) {
                         bytesRead = targetDataLine.read(buffer, 0, buffer.length);
                         if (bytesRead > 0) {
+                            if (settings.noiseReduction) {
+                                applyLowPassFilter(buffer, bytesRead, supportedFormat.getSampleRate());
+                            }
                             // Обновляем визуализацию уровня звука
                             preUpdateVolumeVisualization(buffer, bytesRead, supportedFormat);
                             // Накапливаем данные в ByteArrayOutputStream
@@ -169,6 +174,32 @@ public class AudioRecorder {
         }
     }
     /**
+     * Применяет фильтр нижних частот к аудиоданным.
+     *
+     * @param buffer Буфер с аудиоданными.
+     * @param bytesRead Количество байтов, прочитанных в буфер.
+     * @param sampleRate Частота дискретизации аудиоданных.
+     */
+    private void applyLowPassFilter(byte[] buffer, int bytesRead, float sampleRate) {
+        float cutoffFrequency = 1000.0f;
+        float RC = 1.0f / (cutoffFrequency * 2 * (float) Math.PI);
+        float dt = 1.0f / sampleRate;
+        float alpha = dt / (RC + dt);
+
+        for (int i = 0; i < bytesRead; i += 2) {
+            short sample = (short) ((buffer[i + 1] << 8) | (buffer[i] & 0xFF));
+            float filteredSample = alpha * sample + (1 - alpha) * lastSample;
+            lastSample = filteredSample;
+
+            short filteredShort = (short) filteredSample;
+            buffer[i] = (byte) (filteredShort & 0xFF);
+            buffer[i + 1] = (byte) ((filteredShort >> 8) & 0xFF);
+        }
+    }
+
+    private float lastSample = 0.0f; // Последний отфильтрованный сэмпл
+
+    /**
      * Останавливает процесс записи аудиоданных.
      *
      * <p>Метод останавливает линию данных, закрывает поток аудиоданных и прерывает поток записи.
@@ -198,10 +229,11 @@ public class AudioRecorder {
 
 
     /**
-     * Обновляет отображение уровня звука.
+     * Предварительно обновляет визуализацию громкости на основе аудио данных из буфера.
      *
-     * @param buffer Буфер с аудиоданными.
-     * @param length Длина данных в буфере.
+     * @param buffer Буфер, содержащий аудио данные для анализа.
+     * @param bytesRead Количество байтов, прочитанных в буфер.
+     * @param format Формат аудио данных, включая кодировку, количество каналов и порядок байтов.
      */
     private void preUpdateVolumeVisualization(byte[] buffer, int bytesRead, AudioFormat format) {
         int sampleSizeInBytes = format.getSampleSizeInBits() / 8;
@@ -214,11 +246,14 @@ public class AudioRecorder {
     }
 
     /**
-     * Вычисляет среднеквадратичное значение (RMS) для данных аудио.
+     * Вычисляет среднеквадратичное значение (RMS) аудио сигнала на основе предоставленного буфера данных.
      *
-     * @param buffer Буфер с аудиоданными.
-     * @param length Длина данных в буфере.
-     * @return Среднеквадратичное значение.
+     * @param buffer Буфер, содержащий аудио данные.
+     * @param numberOfSamples Количество сэмплов в буфере.
+     * @param sampleSizeInBytes Размер одного сэмпла в байтах.
+     * @param format Формат аудио данных, включая кодировку, количество каналов и порядок байтов.
+     * @return Среднеквадратичное значение (RMS) аудио сигнала.
+     * @throws IllegalArgumentException Если размер сэмпла не поддерживается (не равен 1, 2, 3 или 4 байтам).
      */
     private double calculateRMS(byte[] buffer, int numberOfSamples, int sampleSizeInBytes, AudioFormat format) {
         double sum = 0;
