@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import ru.sudrf.fairrecord.fairrecord.AudioRecorder;
 import ru.sudrf.fairrecord.fairrecord.FairRecord;
 import ru.sudrf.fairrecord.fairrecord.managers.SoundtrackManager;
 
@@ -79,7 +80,7 @@ public class MainController implements Initializable {
             VBox soundtrackNode = loader.load();
             SoundtrackController trackController = loader.getController();
             soundtracks.getChildren().add(soundtrackNode);
-            soundtrackManager.addSoundtrack(trackController);
+            soundtrackManager.addSoundtrack(trackController, new AudioRecorder.RecorderSettings());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

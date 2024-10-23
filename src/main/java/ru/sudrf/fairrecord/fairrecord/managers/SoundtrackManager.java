@@ -2,11 +2,14 @@ package ru.sudrf.fairrecord.fairrecord.managers;
 
 import lombok.Getter;
 import lombok.NonNull;
+import ru.sudrf.fairrecord.fairrecord.AudioRecorder;
 import ru.sudrf.fairrecord.fairrecord.controllers.MainController;
 import ru.sudrf.fairrecord.fairrecord.controllers.SoundtrackController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Менеджер для управления списком звуковых дорожек.
@@ -22,7 +25,7 @@ public class SoundtrackManager {
     /**
      * Список управляемых звуковых дорожек.
      */
-    private List<SoundtrackController> soundtracks = new ArrayList<>();
+    private HashMap<SoundtrackController, AudioRecorder.RecorderSettings> soundtracks = new HashMap<>();
 
     /**
      * Количество звуковых дорожек в списке.
@@ -35,8 +38,8 @@ public class SoundtrackManager {
      *
      * @return Неизменяемая копия списка звуковых дорожек.
      */
-    public List<SoundtrackController> getSoundtracks() {
-        return List.copyOf(soundtracks);
+    public Map<SoundtrackController, AudioRecorder.RecorderSettings> getSoundtracks() {
+        return Map.copyOf(soundtracks);
     }
 
     /**
@@ -45,9 +48,9 @@ public class SoundtrackManager {
      * @param soundtrack Звуковая дорожка для добавления. Не может быть {@code null}.
      * @throws NullPointerException Если переданный параметр {@code soundtrack} равен {@code null}.
      */
-    public void addSoundtrack(@NonNull SoundtrackController soundtrack) {
+    public void addSoundtrack(@NonNull SoundtrackController soundtrack, AudioRecorder.RecorderSettings settings) {
         count++;
-        soundtracks.add(soundtrack);
+        soundtracks.put(soundtrack, settings);
     }
 
     /**

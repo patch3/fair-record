@@ -26,11 +26,6 @@ public class AudioRecorder {
      */
     private AudioInputStream audioInputStream;
 
-    /**
-     * Файл, в который будет производиться запись.
-     */
-    @Setter @Getter
-    private File outputFile;
 
     /**
      * Линия данных для записи аудио.
@@ -38,37 +33,24 @@ public class AudioRecorder {
     @Getter
     private TargetDataLine targetDataLine;
 
-    /**
-     * Миксер, используемый для записи.
-     */
-    @Getter
-    private final Mixer deviceToRecord;
 
     /**
      * Поток для выполнения записи.
      */
     @Getter
     private Thread recordingThread;
-    @Getter
-    private RecorderSettings settings;
+
     @Getter
     private volatile boolean isRecording = true;
 
+    @Getter @Setter
+    private RecorderSettings settings;
+
     /**
      * Создает новый экземпляр {@code AudioRecorder} с указанными параметрами.
-     *
-     * @param outputFile Файл, в который будет производиться запись.
-     * @param deviceName Миксер, используемый для записи.
-     * @param settings   Настройки записи.
      */
-    public AudioRecorder(File outputFile, Mixer deviceName, RecorderSettings settings) {
-        if (outputFile.exists()) {
-            this.outputFile = generateUniqueFileName(outputFile);
-        }else {
-            this.outputFile = outputFile;
-        }
-        this.deviceToRecord = deviceName;
-        this.settings = settings;
+    public AudioRecorder() { //TODO: ПЕРЕПИСАТЬ ЭТО ВСЁ (параметры) В КЛАСС НАСТРОЕК
+        this.settings = new RecorderSettings();
     }
 
     private File generateUniqueFileName(File originalFile) {
@@ -109,16 +91,16 @@ public class AudioRecorder {
 
     public void start() {
         MixerHelper.printAllMixersInfo();
-        System.out.printf("Starting AudioRecorder %s\n", deviceToRecord);
+        System.out.printf("Starting AudioRecorder %s\n", settings.getAudioDevice());
         try {
-            if (deviceToRecord == null) {
+            if (settings.getAudioDevice() == null) {
                 System.out.println("Device not found");
                 return;
             }
 
-            AudioFormat supportedFormat = MixerHelper.getSupportedAudioFormats(deviceToRecord);
+            AudioFormat supportedFormat = MixerHelper.getSupportedAudioFormats(settings.getAudioDevice());
 
-            targetDataLine = MixerHelper.getTargetDataLine(deviceToRecord, supportedFormat);
+            targetDataLine = MixerHelper.getTargetDataLine(settings.getAudioDevice(), supportedFormat);
             targetDataLine.open(supportedFormat);
             targetDataLine.start();
 
@@ -145,7 +127,7 @@ public class AudioRecorder {
                     byte[] audioData = byteArrayOutputStream.toByteArray();
                     AudioInputStream finalAudioInputStream = new AudioInputStream(
                             new ByteArrayInputStream(audioData), supportedFormat, audioData.length / supportedFormat.getFrameSize());
-                    AudioSystem.write(finalAudioInputStream, AudioFileFormat.Type.WAVE, generateUniqueFileName(outputFile));
+                    AudioSystem.write(finalAudioInputStream, AudioFileFormat.Type.WAVE, generateUniqueFileName(settings.getOutputFile()));
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
@@ -209,7 +191,7 @@ public class AudioRecorder {
         if (targetDataLine != null) {
             targetDataLine.stop();
             targetDataLine.close();
-            System.err.printf("Mixer %s stopped\n", deviceToRecord);
+            System.err.printf("Mixer %s stopped\n", settings.getAudioDevice());
         }
         if (audioInputStream != null) {
             try {
@@ -314,6 +296,8 @@ public class AudioRecorder {
      * Создание класса без аргументов создаст класс-настроек по-умолчанию.
      */
     public static @Data class RecorderSettings {
+        String soundtrackName = null;
+
         /**
          * Включение шумоподавления.
          */
@@ -323,6 +307,13 @@ public class AudioRecorder {
          * Размер буфера для записи.
          */
         final int BUFFER_SIZE = 4096;
+
+        Mixer audioDevice = null;
+
+        File outputFile;
+
+        Mixer deviceToRecord;
+
     }
 
 

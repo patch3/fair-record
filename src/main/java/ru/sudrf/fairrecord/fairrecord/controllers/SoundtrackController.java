@@ -3,8 +3,6 @@ package ru.sudrf.fairrecord.fairrecord.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -13,13 +11,9 @@ import javafx.scene.text.Text;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import ru.sudrf.fairrecord.fairrecord.AudioRecorder;
-import ru.sudrf.fairrecord.fairrecord.FairRecord;
-import ru.sudrf.fairrecord.fairrecord.helpers.AudioDeviceSelector;
+import ru.sudrf.fairrecord.fairrecord.controllers.windows.SettingsWindowController;
 
-import javax.sound.sampled.*;
-import java.io.File;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -33,7 +27,6 @@ import java.util.ResourceBundle;
  *
  * @see Initializable
  * @see AudioRecorder
- * @see AudioDeviceSelector
  * @see MainController
  */
 public class SoundtrackController implements Initializable {
@@ -97,18 +90,15 @@ public class SoundtrackController implements Initializable {
      * Изображение для кнопки настроек.
      */
     @FXML
-    private ImageView settings;
+    private Button settings;
 
-    /**
-     * Текущий выбранный миксер.
-     */
-    private Mixer currentMixerName;
+
 
     /**
      * Записывающий аудиообъект.
      */
 
-    private AudioRecorder recorder;
+    private AudioRecorder recorder = new AudioRecorder();
 
     /**
      * Инициализация контроллера.
@@ -123,8 +113,8 @@ public class SoundtrackController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.name.setText(String.format(this.name.getText(), MainController.soundtrackManager.getCount()));
-        this.settings.setImage(new Image(Objects.requireNonNull(FairRecord.class.getResourceAsStream("images/settingsImage.png"))));
         soundDb.setText(String.valueOf(Double.NaN));
+        settings.setOnMouseClicked(this::clickSettings);
     }
 
     /**
@@ -139,17 +129,6 @@ public class SoundtrackController implements Initializable {
     }
 
     /**
-     * Обработчик события настроек звуковой дорожки.
-     *
-     * <p>Пока не реализован.
-     *
-     * @param mouseEvent Событие мыши.
-     */
-    public void clickSettings(MouseEvent mouseEvent) {
-        // Пока не реализован
-    }
-
-    /**
      * Обработчик события изменения микрофона.
      *
      * <p>Отображает окно выбора аудиоустройства и создает новый объект {@link AudioRecorder}
@@ -157,14 +136,13 @@ public class SoundtrackController implements Initializable {
      *
      * @param mouseEvent Событие мыши.
      */
-    public void clickChangeMicro(MouseEvent mouseEvent) {
-        AudioDeviceSelector.showAndWait();
-        currentMixerName = AudioDeviceSelector.getSelectedMixer();
-        if (currentMixerName != null) {
-            this.audioTrack.setText(String.format("Аудиоустройство: %s", currentMixerName.getMixerInfo().getName()));
-            recorder = new AudioRecorder(new File("test" + currentMixerName.getMixerInfo().getName() + ".wav"), currentMixerName, new AudioRecorder.RecorderSettings());
-            recorder.setSoundtrackController(this);
+    public void clickSettings(MouseEvent mouseEvent) {
+        try {
+            recorder.setSettings(SettingsWindowController.showAndGetSettings(recorder.getSettings()));
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
     }
 
     /**

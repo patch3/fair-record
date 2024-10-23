@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
@@ -14,11 +13,6 @@
          <children>
             <Text fx:id="name" boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Звуковая дорожка %s" HBox.hgrow="ALWAYS" />
             <Text fx:id="audioTrack" boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Аудиоустройство: %s" wrappingWidth="90000.0" HBox.hgrow="ALWAYS" />
-            <ImageView fx:id="settings" fitHeight="13.0" fitWidth="13.0" onMouseClicked="#clickSettings" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets left="270.0" />
-               </HBox.margin>
-            </ImageView>
          </children>
          <VBox.margin>
             <Insets top="8.0" />
@@ -29,7 +23,7 @@
             <VBox prefHeight="75.0" prefWidth="174.0">
                <children>
                   <Button fx:id="delete" mnemonicParsing="false" onMouseClicked="#clickDelete" prefHeight="37.0" prefWidth="176.0" text="Удалить" />
-                  <Button fx:id="changeMicro" alignment="CENTER" lineSpacing="1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#clickChangeMicro" prefHeight="39.0" prefWidth="176.0" style="-fx-wrap-text: true; -fx-padding: 10px;" text="Сменить/выбрать звуковую дорожку" textOverrun="CLIP" wrapText="true" />
+                  <Button fx:id="settings" alignment="CENTER" lineSpacing="1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-wrap-text: true; -fx-padding: 10px;" text="Настройки" textOverrun="CLIP" wrapText="true" />
                </children>
             </VBox>
             <VBox prefHeight="75.0" prefWidth="123.0">
