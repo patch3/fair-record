@@ -139,9 +139,16 @@ public class SoundtrackController implements Initializable {
     public void clickSettings(MouseEvent mouseEvent) {
         try {
             recorder.setSettings(SettingsWindowController.showAndGetSettings(recorder.getSettings()));
+            updateVisualSetting();
         }catch (Exception e){
             e.printStackTrace();
         }
+
+    }
+
+    private void updateVisualSetting() {
+        name.setText(recorder.getSettings().getSoundtrackName());
+        audioTrack.setText(String.format("Аудиоустройство: %s", recorder.getSettings().getAudioDevice().getMixerInfo().getName()));
 
     }
 
@@ -157,7 +164,7 @@ public class SoundtrackController implements Initializable {
             recorder.stop();
         }
         try {
-            if (recorder != null) {
+            if (recorder != null && recorder.getRecordingThread() != null) {
                 recorder.getRecordingThread().join();
             }
         } catch (InterruptedException e) {

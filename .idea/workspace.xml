@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="Добавлен класс настроек, перепись под него" />
+    <list default="true" id="565fcb81-156b-4ffd-a42c-7b8f2d6ee51f" name="Changes" comment="ХЗ че это, бесит просто">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sudrf/fairrecord/fairrecord/controllers/SoundtrackController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +170,8 @@
       <workItem from="1729524680135" duration="1348000" />
       <workItem from="1729609564918" duration="823000" />
       <workItem from="1729665316075" duration="596000" />
-      <workItem from="1729684805024" duration="8843000" />
+      <workItem from="1729684805024" duration="9028000" />
+      <workItem from="1729768685477" duration="1241000" />
     </task>
     <task id="LOCAL-00001" summary="Не работает запись микро">
       <option name="closed" value="true" />
@@ -225,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729697785502</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ХЗ че это, бесит просто">
+      <option name="closed" value="true" />
+      <created>1729698257990</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729698257990</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +262,8 @@
     <MESSAGE value="Начата работа с шумодавом" />
     <MESSAGE value="Исправлена ошибка запушка" />
     <MESSAGE value="Добавлен класс настроек, перепись под него" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен класс настроек, перепись под него" />
+    <MESSAGE value="ХЗ че это, бесит просто" />
+    <option name="LAST_COMMIT_MESSAGE" value="ХЗ че это, бесит просто" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
